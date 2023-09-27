@@ -1,6 +1,7 @@
 const Scooter = require('../src/Scooter')
 const User = require('../src/User')
 
+
 //typeof scooter === object
 describe('scooter object', () => {
   test('Scooter class should create Scooter instance', () => {
@@ -14,7 +15,7 @@ describe('scooter methods', () => {
   // tests here!
 
   //rent method
-  
+
 
   //dock method
 
