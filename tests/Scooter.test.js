@@ -6,7 +6,6 @@ let person = new User('mike', 'password123', 46)
 
 let scooter1 = new Scooter('abc123')
 
-let rent
 //typeof scooter === object
 describe('scooter object', () => {
   test('Scooter class should create Scooter instance', () => {

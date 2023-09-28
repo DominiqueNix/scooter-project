@@ -9,11 +9,36 @@ describe("User property tests", () => {
     expect(typeof user.username).toBe("string");
   })
   // test password
+  test("password should be a string", () => {
+    expect(typeof user.password).toBe("string")
+  })
 
   // test age
+  test("age should be a number", () => {
+    expect(typeof user.age).toBe('number')
+  })
+
+  //test login
+  test("login method should set loggedIn to true if password nput matches user's password", () => {
+        user.login('test123')
+        expect(user.loggedIn).toBe(true)
+  })
+
+  // test logout
+  test("logout method should loggedIn to false", () => {
+    user.login('test123');
+    user.logout();
+
+    expect(user.loggedIn).toBe(false)
+  })
+
 })
 
+// describe("User methods", () => {
+// // test login
 
-// test login
+// // test logout
+// })
 
-// test logout
+
+
