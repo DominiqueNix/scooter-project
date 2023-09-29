@@ -34,11 +34,6 @@ describe("User property tests", () => {
 
 })
 
-// describe("User methods", () => {
-// // test login
-
-// // test logout
-// })
 
 
 

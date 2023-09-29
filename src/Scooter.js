@@ -28,20 +28,29 @@ class Scooter{
   }
 
 async recharge() {
-     console.log('Starting charge');
+  if(this.charge !== 100) {
+    console.log('Starting charge');
      await new Promise(resolve => setTimeout(resolve, 2000)); // wait 2 seconds
       this.charge = 100
 
     // console.log(this.charge)
-    console.log('Charge complete');   
+    console.log(`Scooter #${this.serial} is charged`); 
+  } else {
+    console.log(`Scooter #${this.serial} already charged`)
+  }
+       
  }
 
   async requestRepair(){
-     await new Promise(resolve => setTimeout(resolve, 5000)); // wait 2 seconds
+    if(this.isBroken == true) {
+      await new Promise(resolve => setTimeout(resolve, 5000)); // wait 2 seconds
       this.isBroken = false;
 
-    console.log(this.isBroken)
-    console.log('repair completed'); 
+    // console.log(this.isBroken)
+    console.log(`Scooter #${this.serial} is repaired`);
+    } else { 
+      console.log(`Scooter #${this.serial} is not broken`)
+    }
   }
 }
 
