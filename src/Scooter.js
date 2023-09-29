@@ -1,5 +1,5 @@
 class Scooter{
-  // scooter code here
+//scooter code here
   static nextSerial = 1;
 
   constructor(station){
@@ -15,8 +15,10 @@ class Scooter{
     if(this.charge > 20 && this.isBroken == false){
       this.station = null
       this.user = user
-    } else {
-      throw new Error("scooter needs to charge or scooter needs repair")
+    }else if(this.charge< 20){
+      throw new Error("scooter needs to charge")
+    } else if(this.isBroken == true){
+      throw new Error("scooter needs repair")
     }
   }
 
@@ -24,8 +26,23 @@ class Scooter{
     this.station = station;
     this.user = null
   }
+
+async recharge() {
+     console.log('Starting charge');
+     await new Promise(resolve => setTimeout(resolve, 2000)); // wait 2 seconds
+      this.charge = 100
+
+    // console.log(this.charge)
+    console.log('Charge complete');   
+ }
+
+  async requestRepair(){
+     await new Promise(resolve => setTimeout(resolve, 5000)); // wait 2 seconds
+      this.isBroken = false;
+
+    console.log(this.isBroken)
+    console.log('repair completed'); 
+  }
 }
-
-
 
 module.exports = Scooter

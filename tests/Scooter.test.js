@@ -57,8 +57,21 @@ test('rent method should see if charge is over 20 and not broken, then set the u
     
     
   })
-  //requestRepair method
+  //recharge method
+  test("recharge should set charge to 100 after 2s", async () => {
+    const scooter3 = new Scooter();
+    scooter3.charge = 60
+    await scooter3.recharge(); 
+    expect(scooter3.charge).toBe(100);
+});
 
-  //charge method
+// This only works if I shorten the timer. Jest times out before the test finishes
+  //requestRepair method'
+//   test("request reapir should change isBroken to false after 5s", async () => {
+//     const scooter4 = new Scooter();
+//     scooter4.isBroken = true
+//     await scooter4.requestRepair(); 
+//     expect(scooter4.isBroken).toBe(false);
+// });
 
 })

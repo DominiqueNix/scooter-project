@@ -16,12 +16,6 @@ describe("registerUser method tests", () => {
   test("loginUser method should change user loggedIn state to true if user exsists", () =>{
     scooterApp.registeredUser("Becca", "test123", 21);
     scooterApp.loginUser("Becca", "test123")
-    // let expected = {
-    //   'username': 'Becca',
-    //   'password': 'test123',
-    //   'age': 21,
-    //   'loggedIn': true
-    // }
     expect(scooterApp.registeredUsers['Becca'].loggedIn).toBe(true)
   })
 // log out
@@ -30,6 +24,16 @@ describe("registerUser method tests", () => {
     scooterApp.loginUser("Mike", "test123")
     scooterApp.logoutUser('Mike')
     expect(scooterApp.registeredUsers['Mike'].loggedIn).toBe(false)
+  })
+
+  //create new scooterand 
+  test("create a new scooter add it to the correct station", () =>{
+    scooterApp.createScooter('abc123');
+
+    let response = scooterApp.stations['abc123'].length;
+    expect(response).toBe(1)
+
+    scooterApp.stations['abc123'] = []
   })
 
 // rent scooter
@@ -47,7 +51,7 @@ describe("registerUser method tests", () => {
       "scooter" : {
         "station" : null, 
         "user": user, 
-        "serial" : 1, 
+        "serial" : 2, 
         "charge" : 100,
         "isBroken" : false
       }
@@ -77,7 +81,7 @@ describe("registerUser method tests", () => {
       "scooter" : {
         "station" : "lmn789", 
         "user": null, 
-        "serial" : 2, 
+        "serial" : 3, 
         "charge" : 100,
         "isBroken" : false
       }
@@ -90,7 +94,6 @@ describe("registerUser method tests", () => {
 
     expect(received).toEqual(expected)
   })
-
 
 });
 
