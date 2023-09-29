@@ -35,10 +35,10 @@ class ScooterApp {
   }
 
   logoutUser(username){
-    if(this.registeredUsers[username]) {
+    if(this.registeredUsers[username] && this.registeredUsers[username].loggedIn == true) {
       this.registeredUsers[username].logout()
       console.log("user is logged out")
-    } else {
+    }else {
       throw new Error("no such user is logged in")
     }
 
@@ -61,7 +61,7 @@ class ScooterApp {
 
     } else if(!this.stations[station]){
       throw new Error("no such station")
-    } else if(scooter.staion !== null){
+    } else if(scooter.station !== null){
       throw new Error("scooter is already taken")
     }
   }
